@@ -3,15 +3,10 @@ import 'package:camp/shared/app_colors.dart';
 import 'package:camp/shared/app_settings.dart';
 import 'package:flutter/material.dart';
 
-class HeaderWidget extends StatefulWidget {
+class HeaderWidget extends StatelessWidget {
   final UserModel user;
   const HeaderWidget({super.key, required this.user});
 
-  @override
-  State<HeaderWidget> createState() => _HeaderWidgetState();
-}
-
-class _HeaderWidgetState extends State<HeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,12 +16,12 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       color: AppColors.red,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
-          "Ola, ${widget.user.name}",
+          "Ola, ${user.name}",
           style: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         Text(
-          "Ag ${widget.user.account!.agency!} Cc ${widget.user.account!.number!}",
+          "Ag ${user.account!.agency!} Cc ${user.account!.number!}",
           style: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
         )

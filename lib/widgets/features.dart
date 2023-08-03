@@ -4,15 +4,9 @@ import 'package:camp/shared/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class FeaturesWidget extends StatefulWidget {
+class FeaturesWidget extends StatelessWidget {
   final List<Feature> features;
   const FeaturesWidget({super.key, required this.features});
-
-  @override
-  State<FeaturesWidget> createState() => _FeaturesWidgetState();
-}
-
-class _FeaturesWidgetState extends State<FeaturesWidget> {
 
   Widget getFeature(String icon, String description) {
     return Card(
@@ -56,7 +50,7 @@ class _FeaturesWidgetState extends State<FeaturesWidget> {
       width: AppSettings.screenWidth,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: widget.features
+        children: features
             .map((e) => getFeature(e.icon!, e.description!))
             .toList(),
       ),
