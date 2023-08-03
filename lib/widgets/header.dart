@@ -15,19 +15,19 @@ class _HeaderWidgetState extends State<HeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       height: AppSettings.screenHeight / 5,
       width: AppSettings.screenWidth,
       color: AppColors.red,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
           "Ola, ${widget.user.name}",
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         Text(
           "Ag ${widget.user.account!.agency!} Cc ${widget.user.account!.number!}",
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
         )
       ]),

@@ -5,6 +5,7 @@ import 'package:camp/shared/app_settings.dart';
 import 'package:camp/widgets/card.dart';
 import 'package:camp/widgets/features.dart';
 import 'package:camp/widgets/header.dart';
+import 'package:camp/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:camp/shared/app_images.dart';
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               ),
               actions: [
                 Container(
-                  margin: EdgeInsets.only(right: 8),
+                  margin: const EdgeInsets.only(right: 8),
                   child: SvgPicture.asset(
                     AppImages.notification,
                     height: 24,
@@ -62,10 +63,14 @@ class _HomePageState extends State<HomePage> {
                 user: user!,
               ),
               FeaturesWidget(features: user!.features!),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              CardWidget(card: user!.card!)
+              CardWidget(card: user!.card!),
+              const SizedBox(
+                height: 10,
+              ),
+              InfoCardsWidget(news: user!.news!)
             ]),
           );
   }
