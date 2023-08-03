@@ -2,6 +2,7 @@ import 'package:camp/models/user_model/user_model.dart';
 import 'package:camp/services/api.dart';
 import 'package:camp/shared/app_colors.dart';
 import 'package:camp/shared/app_settings.dart';
+import 'package:camp/widgets/balance.dart';
 import 'package:camp/widgets/card.dart';
 import 'package:camp/widgets/features.dart';
 import 'package:camp/widgets/header.dart';
@@ -62,6 +63,13 @@ class _HomePageState extends State<HomePage> {
               HeaderWidget(
                 user: user!,
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              BalanceWidget(account: user!.account!),
+              const SizedBox(
+                height: 10,
+              ),
               FeaturesWidget(features: user!.features!),
               const SizedBox(
                 height: 10,
@@ -70,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 10,
               ),
-              InfoCardsWidget(news: user!.news!)
+              InfoCardsWidget(news: user!.news!),
             ]),
           );
   }
