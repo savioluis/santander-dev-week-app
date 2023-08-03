@@ -59,27 +59,37 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            body: Column(children: [
-              HeaderWidget(
-                user: user!,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              BalanceWidget(account: user!.account!),
-              const SizedBox(
-                height: 10,
-              ),
-              FeaturesWidget(features: user!.features!),
-              const SizedBox(
-                height: 10,
-              ),
-              CardWidget(card: user!.card!),
-              const SizedBox(
-                height: 10,
-              ),
-              InfoCardsWidget(news: user!.news!),
-            ]),
+            body: Stack(
+              children: [
+                Column(
+                  children: [
+                    HeaderWidget(
+                      user: user!,
+                    ),
+                    const SizedBox(
+                      height: 170,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    FeaturesWidget(features: user!.features!),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CardWidget(card: user!.card!),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    InfoCardsWidget(news: user!.news!),
+                  ],
+                ),
+                Positioned(
+                    top: (AppSettings.screenHeight / 5) - 30,
+                    child: BalanceWidget(
+                      account: user!.account!,
+                    ))
+              ],
+            ),
           );
   }
 }
