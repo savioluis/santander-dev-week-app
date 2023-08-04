@@ -2,9 +2,11 @@ import 'package:camp/models/user_model/user_model.dart';
 import 'package:camp/services/api.dart';
 import 'package:camp/shared/app_colors.dart';
 import 'package:camp/shared/app_settings.dart';
+import 'package:camp/widgets/balance.dart';
 import 'package:camp/widgets/card.dart';
 import 'package:camp/widgets/features.dart';
 import 'package:camp/widgets/header.dart';
+import 'package:camp/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:camp/shared/app_images.dart';
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   fetch() async {
-    user = await ApiApp.fetchUser(3);
+    user = await ApiApp.fetchUser(1);
     setState(() {});
   }
 
@@ -49,7 +51,7 @@ class _HomePageState extends State<HomePage> {
               ),
               actions: [
                 Container(
-                  margin: EdgeInsets.only(right: 8),
+                  margin: const EdgeInsets.only(right: 8),
                   child: SvgPicture.asset(
                     AppImages.notification,
                     height: 24,
@@ -57,16 +59,37 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            body: Column(children: [
-              HeaderWidget(
-                user: user!,
-              ),
-              FeaturesWidget(features: user!.features!),
-              SizedBox(
-                height: 10,
-              ),
-              CardWidget(card: user!.card!)
-            ]),
+            body: Stack(
+              children: [
+                Column(
+                  children: [
+                    HeaderWidget(
+                      user: user!,
+                    ),
+                    const SizedBox(
+                      height: 170,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    FeaturesWidget(features: user!.features!),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CardWidget(card: user!.card!),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    InfoCardsWidget(news: user!.news!),
+                  ],
+                ),
+                Positioned(
+                    top: (AppSettings.screenHeight / 5) - 30,
+                    child: BalanceWidget(
+                      account: user!.account!,
+                    ))
+              ],
+            ),
           );
   }
 }

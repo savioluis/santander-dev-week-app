@@ -6,4 +6,5 @@ class AppColors {
   static Color whiteCustom = const Color(0xffD9D9D9);
   static Color grayLight = const Color(0xff929292);
   static Color grayDark = const Color(0xff616161);
+  static Color whiteLine = const Color(0xffECECEC);
 }

@@ -5,15 +5,10 @@ import 'package:camp/shared/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CardWidget extends StatefulWidget {
+class CardWidget extends StatelessWidget {
   final CreditCard card;
   const CardWidget({super.key, required this.card});
 
-  @override
-  State<CardWidget> createState() => _CardWidgetState();
-}
-
-class _CardWidgetState extends State<CardWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +22,7 @@ class _CardWidgetState extends State<CardWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Cartao com final: ${widget.card.number!.split(' ')[3]}",
+            "Cartao com final: ${card.number!.split(' ')[3]}",
             style: const TextStyle(
                 color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700),
           ),
